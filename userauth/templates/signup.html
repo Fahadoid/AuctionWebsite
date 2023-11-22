@@ -1,0 +1,28 @@
+<h1>Sign up</h1>
+
+{% if error_msg %}
+<div>
+    {{ error_msg }}
+</div>
+{% endif %}
+
+<form action="{% url 'userauth:signup' %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+    </div>
+    <div>
+        <label for="dob">Date of birth</label>
+        <input type="date" name="dob" id="dob">
+    </div>
+    <div>
+        <input type="submit" value="Sign up">
+    </div>
+</form>
+
+<p><a href="{% url 'userauth:login' %}">Log in...</a></p>
